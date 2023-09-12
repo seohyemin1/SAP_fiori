@@ -1,0 +1,72 @@
+<mvc:View controllerName="sync.projectb1301.controller.Main"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m"
+	xmlns:t="sap.ui.table"
+	xmlns:c="sap.ui.core">
+	<Page id="Calcu" title="{i18n>title}">
+		<content>
+			<Panel headerText="{main>list/0/home}">
+				<FlexBox height="150px" alignItems="Center" justifyContent="Center">
+					<!-- <Button text="1" type="Emphasized" class="sapUiSmallMarginEnd" />
+                        <Button text="2" type="Reject" class="sapUiSmallMarginEnd" />
+                        <Button text="3" type="Accept" /> -->
+					<VBox>
+						<Input id = "Input1"/>
+						<Select width="100" id = "select" selectedKey="PLUS">
+							<items>
+								<c:Item key='PLUS' text="+" />
+								<c:Item key='MINUS' text="-" />
+								<c:Item key='MULTIPLE' text="*" />
+								<c:Item key='DIVISION' text="/" />
+							</items>
+						</Select>
+						<Input id = "Input2" change="onChange"/>
+						<Button id="btn1" text = "계산시작" type="Emphasized" press="onClick"/>
+						<Text id="idText" />
+					</VBox>
+				</FlexBox>
+			</Panel>
+
+			<!--sap.ui.table.Table-->
+
+			<t:Table rows="{main>/list}" selectionMode="MultiToggle" visibleRowCount="7" paste="onPaste" ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title" text="Products"/>
+					</OverflowToolbar>
+				</t:extension>
+
+				<t:columns>
+					<t:Column>
+						<Label text="Number 1" />
+						<t:template>
+							<Text text="{main>num1}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+					<t:Column>
+						<Label text="Operator" />
+						<t:template>
+							<Text text="{main>operator}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+					<t:Column>
+						<Label text="Number 2" />
+						<t:template>
+							<Text text="{main>num2}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="결과" />
+						<t:template>
+							<Text text="{main>result}" wrapping="false" />
+						</t:template>
+					</t:Column>
+				</t:columns>
+
+			</t:Table>
+
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,16 @@
+<c:FragmentDefinition
+    xmlns:c="sap.ui.core"
+    xmlns="sap.m">
+
+<Dialog id="idDialog" title="Hello Dialog"
+        contentHeight="50%"
+        contentWidth="40%">  <!--사이즈 단위는 %, px, rem, em-->
+<content>
+    <Text text="Hello Content!"/>
+</content>
+    <endButton>
+        <Button text="Close" press="onClose"/>
+    </endButton>
+</Dialog>
+</c:FragmentDefinition>
+

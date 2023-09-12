@@ -1,0 +1,64 @@
+<mvc:View controllerName="projectb1304.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+		<Page title="Detail Page"
+         showNavButton="true"
+         navButtonPress="onNavMain">
+        	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormDisplayColumn_oneGroup234"
+			editable="false"
+			layout="ColumnLayout"
+			title="Address"
+			columnsM="2"
+			columnsL="3"
+			columnsXL="4"
+			>
+			<f:content>
+				<Label text="OrderID" />
+				<Text id="OrderID" text="{OrderID}" />
+				<Label text="CustomerID" />
+				<Text id="CustomerID" text="{CustomerID}" />
+				<Label text="EmployeeID" />
+				<Text id="EmployeeID" text="{EmployeeID}" />
+				<Label text="OrderDate" />
+				<Text id="OrderDate" text="{OrderDate}" />
+				
+                <Label text="RequiredDate" />
+                <Text id="RequiredDate" text="{RequiredDate}" />
+
+                <Label text="ShippedDate" />
+                <Text id="ShippedDate" text="{ShippedDate}" />
+
+                 <Label text="ShipVia" />
+                <Text id="ShipVia" text="{ShipVia}" />
+
+                 <Label text="Freight" />
+                <Text id="Freight" text="{Freight}" />
+
+                 <Label text="ShipName" />
+                <Text id="ShipName" text="{ShipName}" />
+
+                 <Label text="ShipAddress" />
+                <Text id="ShipAddress" text="{ShipAddress}" />
+
+                 <Label text="ShipCity" />
+                <Text id="ShipCity" text="{ShipCity}" />
+
+                 <Label text="ShipRegion" />
+                <Text id="ShipRegion" text="{ShipRegion}" />
+
+                 <Label text="ShipPostalCode" />
+                <Text id="ShipPostalCode" text="{ShipPostalCode}" />
+
+                 <Label text="ShipCountry" />
+                <Text id="ShipCountry" text="{ShipCountry}" />
+
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+            
+        </Page>
+</mvc:View>
+

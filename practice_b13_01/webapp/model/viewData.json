@@ -1,0 +1,11 @@
+
+{
+        "name" : "seo hye min",
+        "title" : "Fiori Application",
+        "list" : [],
+        "operList" : [
+            {"code" : "PLUS", "text" : "+"},
+            {"code" : "MINUS", "text" : "-"},
+            {"code" : "MULTIPLE", "text" : "*"},
+            {"code" : "DIVISION", "text" : "/"}
+        ]    }

@@ -1,0 +1,65 @@
+<mvc:View controllerName="projectb1302.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table">
+
+    <Page id="page" title="{i18n>title}">
+        <content>
+        
+        <t:Table
+				id="tableId"
+				rows="{main>/list}"
+				selectionMode="MultiToggle"
+				selectionBehavior="Row"
+				visibleRowCount="7"
+				rowActionCount="1"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title" text="Products"/>
+                        <ToolbarSpacer/>
+                        <Button text='Add' icon="sap-icon://add" press = "onClick"/>
+                        <Button text='Delete' icon="sap-icon://delete" press ="onClick2"/>
+					</OverflowToolbar>
+				</t:extension>
+
+				<t:columns>
+					<t:Column>
+						<Label text="Name" />
+						<t:template>
+							<Input value="{main>Name}"/>
+						</t:template>
+					</t:Column>
+
+					<t:Column>
+						<Label text="Address" />
+						<t:template> 
+							<Input />
+						</t:template>
+					</t:Column>
+
+                    <t:Column>
+						<Label text="Phone" />
+						<t:template>
+							<Input />
+						</t:template>
+					</t:Column>
+                     <t:Column>
+						<Label text="Department" />
+						<t:template>
+							<Input />
+						</t:template>
+					</t:Column>
+				</t:columns>
+					<t:rowActionTemplate>
+						<t:RowAction>
+							<t:items>
+								<t:RowActionItem type="Delete"/>
+							</t:items>
+						</t:RowAction>
+					</t:rowActionTemplate>
+			</t:Table>      
+        </content>
+    </Page>
+</mvc:View>

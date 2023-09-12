@@ -1,0 +1,140 @@
+<mvc:View controllerName="projectb1304.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:f="sap.f"
+	xmlns:layout="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns="sap.m">
+		<f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
+			<!-- DynamicPage Title -->
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<Title text="Northwind"/>
+					</f:heading>
+					<f:actions>
+						<!-- <Button text="Search" type="Emphasized" press="onSearch"/>
+						<Button text="Detail" type="Emphasized" press="onNavDetail"/> -->
+					</f:actions>
+				</f:DynamicPageTitle>
+			</f:title>
+			<!-- DynamicPage Header -->
+			<f:header>
+				<f:DynamicPageHeader pinnable="true">
+			   <!-- <layout:HorizontalLayout allowWrapping="true">
+						<layout:VerticalLayout class="sapUiMediumMarginEnd">
+							<Label text="Order ID"/>
+							<Input id="idInput" change="onSearch" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+						</layout:VerticalLayout>
+
+						<layout:VerticalLayout>
+							<ObjectAttribute title="Availability"/>
+							<ObjectStatus text="In Stock" state="Success" />
+						</layout:VerticalLayout>
+					</layout:HorizontalLayout> -->
+
+					<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+						<fb:filterGroupItems>
+							<fb:FilterGroupItem name="OrderID" label="OrderID" groupName="Group1" visibleInFilterBar="true">
+								<fb:control>
+									<Input id="idInput" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem name="CustomerID" label="CustomerID" groupName="Group1" visibleInFilterBar="true">
+								<fb:control>
+									<Input id="idInput2" showValueHelp="true" valueHelpRequest="onValueHelp2"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem name="OrderDate" label="OrderDate" groupName="Group1" visibleInFilterBar="true">
+								<fb:control>
+									<DateRangeSelection id="idDate" displayFormat="yyyy-MM-dd"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+						</fb:filterGroupItems>
+					</fb:FilterBar>
+
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+				<Table id="idProductsTable"
+						sticky="HeaderToolbar,ColumnHeaders"
+						inset="false"
+						mode="SingleSelectMaster"
+						selectionChange="onSelectionChange"
+						items="{/Orders}"
+					   class="sapFDynamicPageAlignContent"
+					   width="auto">
+					<headerToolbar>
+						<Toolbar>
+							<Title text="Products" level="H2"/>
+						</Toolbar>
+					</headerToolbar>
+
+
+					<columns>
+						<Column	width="12em">
+							<Text text="OrderID" />
+						</Column>
+						<Column	width="12em">
+							<Text text="CustomerID" />
+						</Column>
+						<Column	width="12em">
+							<Text text="EmployeeID" />
+						</Column>
+						<Column	width="12em">
+							<Text text="OrderDate" />
+						</Column>
+						<Column	width="12em">
+							<Text text="RequiredDate" />
+						</Column>
+						<Column	width="12em">
+							<Text text="ShippedDate" />
+						</Column>						
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+							<Text text="{OrderID}"/>
+							<Text text="{CustomerID}"/>
+							<!--Expression Binding 적용-->
+							<Text text="{=${EmployeeID} > 3 ? 'Yes' : ${CustomerID}}"/>
+							<!-- <Input enabled="{=${EmployeeID} >3 ? false : true}"
+									value="{CustomerID}"/> -->
+
+							<!-- Formatter 함수 적용 -->
+							<Text text="{
+								path : 'OrderDate',
+								formatter : '.formatter.fnDateString'														
+								}"/>
+
+							<Text text="{ 								
+								path : 'RequiredDate',
+								formatter : '.formatter.fnDateString'
+								}"/>
+
+							<Text text="{
+							    path : 'ShippedDate',
+								formatter : '.formatter.fnDateString'							
+							     }"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+
+
+				</Table>
+			</f:content>
+			<!-- DynamicPage Footer -->
+			<f:footer>
+				<OverflowToolbar>
+					<Button icon="sap-icon://message-popup"
+							text="{/messagesLength}"
+							type="Emphasized"
+							press="onMessageButtonPress"
+							visible="{= !!${/messagesLength}}"/>
+					<ToolbarSpacer/>
+					<Button type="Accept" text="Accept"/>
+					<Button type="Reject" text="Reject"/>
+				</OverflowToolbar>
+			</f:footer>
+		</f:DynamicPage>
+</mvc:View>

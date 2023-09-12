@@ -9,7 +9,6 @@ sap.ui.define([
 
         return Controller.extend("projectb1306.controller.Main", {
             onInit: function () {
-
             }
         });
     });
